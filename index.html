@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.scss">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>myWeather</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+    <div class="container p-4">
+        <div id="inputLocation">
+            <form autocomplete="off">
+                <div class="form-row">
+                  <div class="col">
+                    <input type="text" class="form-control" id="inputCountry" placeholder="Ingresa el país">
+                    <div id="countryMatchList"></div>
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="inputCity" placeholder="Selecciona la ciudad">
+                    <div id="cityMatchList"></div>
+                  </div>
+                </div>
+              </form>
+        </div>
+    </div>
+
+    <script src="js/init.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
