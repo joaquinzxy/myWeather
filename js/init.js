@@ -130,16 +130,36 @@ async function getWeatherData(city) {
 
 function showWeatherData(data) {
     console.log(data)
-    let clima={
+    let weather={
         country: selectedLocation.country,
         city: selectedLocation.city,
         temp: data.main.temp,
-        status:"",
-        desc:"",
-        wind:"",
-        humidity:""
+        status: data.weather[0].main,
+        desc: data.weather[0].description,
+        wind: data.wind.speed,
+        humidity: data.main.humidity
     }
-    console.log(clima)
+    dataContainer.innerHTML=`
+            <div class="col-12 flex-column">
+                <img class="img-fluid" src="img/icons/27.png">
+                <p class="h1">${weather.temp}°</p>
+                <h4>${weather.city}</h4>
+                <div class="row">
+                    <div class="col-4 flex-column">
+                        <h6>Wind now</h6>
+                        <p class="h4">${weather.temp}°</p>
+                    </div>
+                    <div class="col-4 flex-column">
+                        <h6>Humidity</h6>
+                        <p class="h4">${weather.humidity}%</p>
+                    </div>
+                    <div class="col-4 flex-column">
+                       <h6>Precipitation</h6>
+                       <p class="h4">${weather.temp}%</p>
+                    </div>
+                </div>
+            </div>
+    `
 }
 
 countrySearchInput.addEventListener("input", () => {
