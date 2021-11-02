@@ -3,6 +3,8 @@
 const APIKEY = "8006a61b5a7dc0bcd14b80ea91e30cf0"
 const COUNTRIES_JSON = "js/countries.json"
 const CITIES_JSON = "js/cities.json"
+const RESULTS_TO_SHOW = 7
+
 let selectedLocation = {}
 
 const countrySearchInput = document.getElementById("inputCountry")
@@ -13,6 +15,26 @@ const countryMatchList = document.getElementById("countryMatchList")
 const cityMatchList = document.getElementById("cityMatchList")
 const dataContainer = document.getElementById("dataContainer")
 
+const weatherIcon = {
+    "01d":"clearsky.png",
+    "02d":"fewclouds.png",
+    "03d":"scatteredclouds.png",
+    "04d":"brokenclouds.png",
+    "05d":"showerrain.png",
+    "06d":"rain.png",
+    "07d":"thunderstorm.png",
+    "08d":"snow.png",
+    "09d":"mist.png",
+    "01n":"clearsky-night.png",
+    "02n":"fewclouds-night.png",
+    "03n":"scatteredclouds.png",
+    "04n":"brokenclouds.png",
+    "05n":"showerrain.png",
+    "06n":"rain-night.png",
+    "07n":"thunderstorm.png",
+    "08n":"snow.png",
+    "09n":"mist.png"
+}
 
 let countries = []
 let cities = []
@@ -81,6 +103,7 @@ function citySearch(query) {
 }
 
 function printCountries(matches) {
+    matches = matches.slice(0, RESULTS_TO_SHOW)
     let htmlToAppend = matches.map(match => `
     <div class="btn card card-body mb-1" onclick="selectedCountry('${match.name}','${match.code}')">
         <h6><span class="flag-icon flag-icon-${match.code.toLowerCase()}"></span> ${match.name} (${match.code}) </h6>
@@ -131,17 +154,20 @@ async function getWeatherData(city) {
 function showWeatherData(data) {
     console.log(data)
     let weather={
-        country: selectedLocation.country,
-        city: selectedLocation.city,
-        temp: data.main.temp,
-        status: data.weather[0].main,
-        desc: data.weather[0].description,
-        wind: data.wind.speed,
-        humidity: data.main.humidity
+        "country": selectedLocation.country,
+        "city": selectedLocation.city,
+        "temp": data.main.temp,
+        "status": data.weather[0].main,
+        "desc": data.weather[0].description,
+        "wind": data.wind.speed,
+        "humidity": data.main.humidity,
+        "icon": data.weather[0].icon
     }
     dataContainer.innerHTML=`
             <div class="col-12 flex-column">
-                <img class="img-fluid" src="img/icons/27.png">
+            <div>
+            <img class="img-fluid" src="img/icons/${weatherIcon[weather.icon]}">
+            </div>
                 <p class="h1">${weather.temp}°</p>
                 <h4>${weather.city}</h4>
                 <div class="row">
@@ -170,8 +196,4 @@ countrySearchInput.addEventListener("input", () => {
 citySearchInput.addEventListener("input", () => {
     citySearch(citySearchInput.value)
 })
-
-
-
-
 

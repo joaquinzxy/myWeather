@@ -1,4 +1,10 @@
 * {
   font-family: 'Roboto', sans-serif;
 }
+
+#dataContainer {
+  left: 200%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
 /*# sourceMappingURL=style.css.map */

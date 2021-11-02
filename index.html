@@ -8,49 +8,39 @@
   <link rel="stylesheet" href="css/flag-icons.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"> 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.scss">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="prueba.css"> -->
+
   <title>myWeather</title>
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
-      </div>
+      <a class="navbar-brand" href="#">myWeather</a>
     </nav>
   </header>
   <div class="container p-4">
     <div id="inputLocation">
       <form autocomplete="off">
         <div class="form-row">
-          <div class="col">
+          <div class="col position-relative">
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputFlag"></span>
+                  <span class="input-group-text" id="inputFlag"><span class="flag-icon flag-icon-xx"></span></span>
                 </div>
                 <input type="text" class="form-control" id="inputCountry" placeholder="Type country...">
               </div>
             </div>
-            <div id="countryMatchList"></div>
+            <div id="countryMatchList" class="position-absolute w-100 pr-2"></div>
           </div>
           <div class="col">
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"></span>
+                  <span class="input-group-text"><span class="flag-icon flag-icon-xx"></span>
                 </div>
                 <input type="text" class="form-control" id="inputCity" placeholder="Type city..." disabled="">
               </div>
@@ -62,8 +52,8 @@
       </form>
     </div>
     <div class="row justify-content-center">
-      <div class="col-xs-12 col-sm-8 col-md-5 col-lg-4">
-        <div id="dataContainer" class="row  text-center">
+      <div class="col-xs-12 col-sm-8 col-md-5 col-lg-4 position-relative">
+        <div id="dataContainer" class="row  text-center position-absolute hidden-data">
 
         </div>
       </div>
