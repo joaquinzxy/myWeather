@@ -1,12 +1,22 @@
-*{
-    font-family: 'Roboto', sans-serif;
+* {
+  font-family: "Roboto", sans-serif;
 }
 
-#dataContainer{
-    left: 200%;
-    transition: all 0.5s ease;
+#dataContainer {
+  left: 200%;
+  width: 100%;
+  transition: all 0.5s ease;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#countryMatchList, #cityMatchList{
+#inputLocation{
     z-index: 3;
+}
+
+#countryMatchList,
+#cityMatchList {
+  z-index: 5;
 }

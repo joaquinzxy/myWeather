@@ -1,14 +1,24 @@
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 #dataContainer {
   left: 200%;
+  width: 100%;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#countryMatchList, #cityMatchList {
+#inputLocation {
   z-index: 3;
+}
+
+#countryMatchList,
+#cityMatchList {
+  z-index: 5;
 }
 /*# sourceMappingURL=style.css.map */
